@@ -1,12 +1,12 @@
 
-import 'package:aulas_navegacao/models/categorias.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert' as convert;
+
+import 'package:http/http.dart' as http;
 
 
 Future<List<dynamic>> dados_categoria() async{
   final response = await http
-      .get(Uri.parse('http://localhost:3001/categoria'));
+      .get(Uri.parse('http://localhost:3000/categoria'));
   if (response.statusCode == 200) {
     var jsonResponse = convert.jsonDecode(response.body);
     return jsonResponse;
@@ -14,4 +14,3 @@ Future<List<dynamic>> dados_categoria() async{
     throw Exception('Falha ao ler categorias!');
   }
 }
-
